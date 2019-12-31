@@ -94,17 +94,22 @@ let car: ICar = {
 }
 
 // 10.Создайте interface IGarage и типизируйте этот кусок кода:
-interface IGarage {
+export interface IGarage {
     addCar: (car: ICar) => void;
     logAllCarsNames: () => void;
-    getAllCars: () => ICar[]
+    getAllCars: () => ICar[];
+    subscribe: (subscriber: () => void) => void;
 }
 
 export let createGarage = (): IGarage => {
     let _cars: ICar[] = [];
+    let _subscriber: (() => void) | null = null;
     return {
         addCar(car) {
             _cars.push(car);
+            if (_subscriber !== null) {
+                _subscriber();
+            }
         },
         logAllCarsNames() {
             console.log('Cars in the garage: ');
@@ -112,6 +117,9 @@ export let createGarage = (): IGarage => {
         },
         getAllCars() {
             return _cars;
+        },
+        subscribe(subscriber: () => void): void {
+            _subscriber = subscriber;
         }
     }
 };
