@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/it-kamasutra-typescript.iml" filepath="$PROJECT_DIR$/.idea/it-kamasutra-typescript.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/task-typescript.iml" filepath="$PROJECT_DIR$/.idea/task-typescript.iml" />
     </modules>
   </component>
 </project>
