@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state from './state';
+import {createGarage} from './state';
+
+let garage = createGarage();
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -7,9 +7,9 @@ let ages2: Array<string> = ['18', '12', '19', '2', '45'];
 let ages3: Array<string | number> = ['18', 12, '19', '2', '45'];
 
 // 4
-/*let man1: {name: string; height: number} = { name: 'Dima', height: 1.34 };
-let man2: {name: string; height: number} = { name: 'Sasha', height: 1.8 };
-let car: {model: string; year: number} = { model: 'Reno Stepway', year: 2016 };*/
+let man11: { name: string; height: number } = {name: 'Dima', height: 1.34};
+let man12: { name: string; height: number } = {name: 'Sasha', height: 1.8};
+let car11: { model: string; year: number } = {model: 'Reno Stepway', year: 2016};
 
 //5
 interface IMan {
@@ -67,6 +67,20 @@ interface ICar {
     rename: (model: string) => void
 }
 
+export let createCar = (model: string, year: number): ICar => {
+    return {
+        model: model,
+        year: year,
+        on: false,
+        turnOn(): void {
+            this.on = true;
+        },
+        rename(model: string): void {
+            this.model = model;
+        }
+    }
+};
+
 let car: ICar = {
     model: 'Reno Stepway',
     year: 2016,
@@ -83,9 +97,10 @@ let car: ICar = {
 interface IGarage {
     addCar: (car: ICar) => void;
     logAllCarsNames: () => void;
-    getAllCars: ()=> ICar[]
+    getAllCars: () => ICar[]
 }
-let createGarage = (): IGarage => {
+
+export let createGarage = (): IGarage => {
     let _cars: ICar[] = [];
     return {
         addCar(car) {
@@ -111,6 +126,7 @@ interface ITransport {
     stop: () => void
     year: number
 }
+
 interface IDiggable {
     dig: () => void
 }
@@ -118,11 +134,11 @@ interface IDiggable {
 class Mole {
     constructor(public diggableThing: IDiggable) {
     }
+
     dig() {
         this.diggableThing.dig();
     }
 }
-
 
 
 class Garage {
@@ -142,25 +158,39 @@ class Garage {
 }
 
 class Tractor implements ITransport, IDiggable {
-    constructor(public year: number){}
+    constructor(public year: number) {
+    }
+
     start() {
         console.log('kerosin')
         console.log('kruchu herny, tolkayu')
     }
-    stop() {}
-    dig() {}
+
+    stop() {
+    }
+
+    dig() {
+    }
+
     color = "red"
 }
+
 class Bike implements ITransport {
-    constructor(public year: number, public speed: number){}
+    constructor(public year: number, public speed: number) {
+    }
+
     start() {
         console.log('shlem ,')
     }
-    stop() {}
+
+    stop() {
+    }
 }
 
 class Shovel implements IDiggable {
-    dig() { console.log("low speed")}
+    dig() {
+        console.log("low speed")
+    }
 }
 
 let g = new Garage();
@@ -179,7 +209,8 @@ mole.diggableThing.dig();
 class Car implements ICar {
     on: boolean = false
 
-    constructor(public model: string, public year: number) {}
+    constructor(public model: string, public year: number) {
+    }
 
     turnOn(): void {
         this.on = true;
