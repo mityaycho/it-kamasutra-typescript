@@ -39,7 +39,7 @@ function toUpperCase(strings: string[]): number[] {
 
 function toUpperCase2(strings: string[]): void {
     let result = strings.map(s => s.toUpperCase());
-    console.log(result)
+    console.log(result);
 }
 
 // 8. Добавьте строгую типизацию функции, используя те интерфейсы, которые у вас есть:
@@ -48,14 +48,14 @@ let createMan = (name: string, height: number): IMan => {
         height,
         name
     };
-}
+};
 
 let renameMan = (man: IMan, newName: string): IMan => {
     return {
         ...man,
         name: newName
     }
-}
+};
 
 
 // 9. Расширить интерфейс ICar, чтобы компилятор не ругался:
@@ -64,7 +64,7 @@ interface ICar {
     year: number;
     on: boolean;
     turnOn: () => void;
-    rename: (model: string) => void
+    rename: (model: string) => void;
 }
 
 export let createCar = (model: string, year: number): ICar => {
@@ -91,7 +91,7 @@ let car: ICar = {
     rename(model: string): void {
         this.model = model;
     }
-}
+};
 
 // 10.Создайте interface IGarage и типизируйте этот кусок кода:
 export interface IGarage {
@@ -130,13 +130,13 @@ export let createGarage = (): IGarage => {
 // S O L I D
 
 interface ITransport {
-    start: () => void
-    stop: () => void
-    year: number
+    start: () => void;
+    stop: () => void;
+    year: number;
 }
 
 interface IDiggable {
-    dig: () => void
+    dig: () => void;
 }
 
 class Mole {
@@ -170,8 +170,8 @@ class Tractor implements ITransport, IDiggable {
     }
 
     start() {
-        console.log('kerosin')
-        console.log('kruchu herny, tolkayu')
+        console.log('kerosin');
+        console.log('kruchu herny, tolkayu');
     }
 
     stop() {
@@ -188,7 +188,7 @@ class Bike implements ITransport {
     }
 
     start() {
-        console.log('shlem ,')
+        console.log('shlem ,');
     }
 
     stop() {
@@ -202,8 +202,8 @@ class Shovel implements IDiggable {
 }
 
 let g = new Garage();
-g.put(new Tractor(2000))
-g.put(new Bike(2012, 300))
+g.put(new Tractor(2000));
+g.put(new Bike(2012, 300));
 
 
 let tractor = new Tractor(2000);
@@ -215,7 +215,7 @@ let mole2 = new Mole(shovel);
 mole.diggableThing.dig();
 
 class Car implements ICar {
-    on: boolean = false
+    on: boolean = false;
 
     constructor(public model: string, public year: number) {
     }
