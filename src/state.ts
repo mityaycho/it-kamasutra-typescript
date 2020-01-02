@@ -236,5 +236,3 @@ class Car implements ICar {
 let car1: Car = new Car("Reni", 2020);
 car1.stop();
 let car2 = new Car("Mers", 2019);
-
-export default 15;
